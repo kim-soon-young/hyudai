@@ -29,6 +29,7 @@ body {
     color: #191919;
     word-break: keep-all;
     background-color: rgb(198, 245, 245);
+    height: 2000px;
 
     /* <!-- 안내창 --> */
 
@@ -54,6 +55,13 @@ body {
     background-color: rgba(0, 0, 0, 0.84);
     z-index: 9999999;
     padding: 50px;
+    transition: all 0.3s;
+    /* 스크롤 생기고 싶으면 
+    overflow-y: auto;*/
+}
+/* 메뉴 자바스크립트 기능 */
+.nav-active {
+    left: calc(100% - 450px);
 }
 .nav-close{
     position: absolute;
@@ -113,7 +121,12 @@ body {
     width: 100%;
     height: 80px;
     z-index: 9999;
+    transition: all 0.8s;
     /* background-color: rgba(0, 0, 0, 0.84); */
+}
+/* 헤더에 기능 추가 */
+.header-active{
+    background-color: #fff;
 }
 /* 로고 */
 .logo-w {
@@ -166,6 +179,7 @@ body {
     transform: translateY(-10px);
     opacity: 0;
     visibility: hidden;
+    transition: all 0.5s;
 }
 .language-box-active li{
     transform: translateY(0px);
@@ -182,6 +196,83 @@ body {
     padding: 5px 0;
 }
 /* <!-- 비주얼 : 동영상 --> */
+.bt-menu {
+    display: inline-block;
+    width: 37px;
+    height: 12px;
+    background: url("../images//toggle_navi.png") no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}   
+.visual {
+    position: relative;
+    height: 100vh;
+    background-color: aquamarine;
+}
+.swVisual {
+    width: 100%;
+    height: 100%;
+}
+/* 비디오를 영역에 가득채우기 */
+.visual video {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    width: auto;
+    height: auto;
+    min-width : 100%;
+    min-height: 100%;
+    object-fit : cover;
+}
+.visual .inner {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+}
+.visual-control {
+    display: flex;
+    align-items: flex-start;
+    gap : 0 35px;
+}
+.visual-control li {
+    position: relative;
+    width: calc(100% / 8);
+    text-align: center;
+    padding: 20px 0;
+    cursor: pointer;
+}
+.visual-control li::before {
+    content:"";
+    position: absolute;;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.visual-control li > .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 1);
+    transition: width;
+}
+.visual-control li span {
+    font-size: 14px;
+    font-weight: center;
+    color: #fff;
+}
+
+
+
+
 /* <!-- 뉴스 --> */
 /* <!-- 비지니스 --> */
 /* <!-- 미디어 --> */
