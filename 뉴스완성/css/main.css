@@ -1,0 +1,356 @@
+@charset "utf-8";
+@import url("font.css");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,li {
+    list-style: none;
+    text-decoration: none;
+}
+a {
+    color: #191919;
+}
+img {
+    border: 0;
+    vertical-align: middle;
+}
+html {
+    font-size: 16px;
+}
+body {
+    font-family: Pretendard, "Nanum Myeongjo", -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: -0.64px;
+    color: #191919;
+    word-break: keep-all;
+    background-color: rgb(198, 245, 245);
+    height: 2000px;
+
+    /* <!-- 안내창 --> */
+
+    /* 공통요소 */
+.wrap{
+    position: relative;
+}
+.inner {
+    position: relative;
+    width: 100%;
+    max-width: 1800px;
+    min-width: 640px;
+    padding: 0 90px;
+    margin: 0 auto;
+}
+/* 주메뉴 */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 450px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.84);
+    z-index: 9999999;
+    padding: 50px;
+    transition: all 0.3s;
+    /* 스크롤 생기고 싶으면 
+    overflow-y: auto;*/
+}
+/* 메뉴 자바스크립트 기능 */
+.nav-active {
+    left: calc(100% - 450px);
+}
+.nav-close{
+    position: absolute;
+    top:20px;
+    right: 30px;
+    display: block;
+    width: 23px;
+    height: 23px;
+    font-size: 0;
+    background: url("../images/close2.png") no-repeat center;
+    border:0;
+    cursor: pointer;
+}
+.gnb {
+    position: relative;
+    display: block;
+}
+.gnb > li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 20px;}
+.gnb > li > a {
+    color: #fff;
+    display: block;
+    font-weight: bold;
+    letter-spacing: -1px;
+    font-size: 20px;
+}
+.depth2 {
+    position: relative;
+    display: block;
+    width: 180px;
+}
+.depth2 > li  {
+    position: relative;
+    display: block;
+    padding-bottom: 20px;
+}
+.depth2 > li > a {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: -0.75px;
+    color: #fff;
+}
+/* <!-- 상단 --> */
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 9999;
+    transition: all 0.8s;
+    /* background-color: rgba(0, 0, 0, 0.84); */
+}
+/* 헤더에 기능 추가 */
+.header-active{
+    background-color: #fff;
+}
+/* 로고 */
+.logo-w {
+    display: block;
+}
+.logo-g {
+    display: none;
+};
+.header > .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap:0 50px;
+}
+
+/* 언어  */
+.language-box {
+    padding-top: 25px;
+}
+.language-word {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    letter-spacing: -0.83px;
+    color: #000;
+    cursor: pointer;
+    font-weight: 500;
+    padding-right: 22px;
+}
+.language-word::after {
+    content: "";
+    display: inline-block;
+    background: url("../images/select_icon2.png") no-repeat;
+    background-size: cover;
+    width: 8px;
+    height: 7px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+.language{
+    visibility: hidden;
+}
+.language li {
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+.language-box-active li{
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+}
+.language li {
+    display: block;
+    font-size: 16px;
+    letter-spacing: -0.83px;
+    color:#000;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 5px 0;
+}
+/* <!-- 비주얼 : 동영상 --> */
+.bt-menu {
+    display: inline-block;
+    width: 37px;
+    height: 12px;
+    background: url("../images//toggle_navi.png") no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}   
+.visual {
+    position: relative;
+    height: 100vh;
+    background-color: aquamarine;
+}
+.swVisual {
+    width: 100%;
+    height: 100%;
+}
+/* 비디오를 영역에 가득채우기 */
+.visual video {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    width: auto;
+    height: auto;
+    min-width : 100%;
+    min-height: 100%;
+    object-fit : cover;
+}
+.visual .inner {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+}
+.visual-control {
+    display: flex;
+    align-items: flex-start;
+    gap : 0 35px;
+}
+.visual-control li {
+    position: relative;
+    width: calc(100% / 8);
+    text-align: center;
+    padding: 20px 0;
+    cursor: pointer;
+}
+.visual-control li::before {
+    content:"";
+    position: absolute;;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+    
+}
+.visual-control li > .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 1);
+    transition: width;
+}
+.visual-control li span {
+    font-size: 14px;
+    font-weight: center;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+}
+/* <!-- 뉴스 --> */
+.news {
+    position: relative;
+    padding: 85px 0;
+}
+.news .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.news-left {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    width: calc(50% - 4.32%);
+    height: 51.58vw;
+    /* 예를 들어 ( 내 높이에 840px / 1.800 ) * 100 */
+    max-height: 840px;
+    background-color: beige;
+}
+.news-top {
+    width: 100%;
+    padding-top: 15%;
+}
+.news-logo {
+    font-family: Pretendard, "Nanum Myeongjo";
+    font-size: 70px;
+    font-weight: 600;
+    letter-spacing: -2.5px;
+    color: #000;
+}
+.news-desc {
+    font-family: Pretendard, "Nanum Myeongjo";
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: #000;
+    margin-top: 30px;
+}
+.news-more {
+    position: relative;
+    display: inline-block;
+    padding-right: 46px;
+    font-size:14px;
+    font-weight: bold;
+    letter-spacing: -0.14px;
+    color: #000;
+    text-transform: uppercase;
+    margin-top: 12%;
+}
+.news-more::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -6px;
+    width: 36px;
+    height: 25px;
+    background: url("../images/more2.png") no-repeat center;
+}
+.news-bottom{
+    width: 100%;
+}
+.news-photo{
+    width: 100%;
+    height: auto;
+}
+.news-right {
+    width: calc(50% - 4.32%);
+}
+.news-link{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.news-link img{
+    max-width: 100%;
+    height: 51.58vw;
+    max-height: 840px;
+}
+
+/* <!-- 비지니스 --> */
+/* <!-- 미디어 --> */
+/* <!-- 하단 --> */
