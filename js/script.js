@@ -1,7 +1,25 @@
 window.addEventListener("load", function () {
   // AOS적용
   AOS.init();
-  // ============================= 언어 펼침 기능
+  // 안내창
+  let body = document.querySelector("body");
+  let modal = document.querySelector(".modal-wrap");
+  modal.addEventListener("click", function () {
+    // modal.style.display = "none";
+    // fadeOut(modal);
+    anime({
+      targets: ".modal",
+      delay: 200,
+      duration: 500,
+      opacity: 0,
+      easing: "easeInOutQuad",
+      complete:function(){
+        modal.style.display = "none";
+        body.classList.add("active")
+      }
+    });
+  });
+  // 언어 펼침 기능
   const langWord = document.querySelector(".language-word");
   const language = document.querySelector(".languge");
   const languageLi = document.querySelector(".languge li");
@@ -46,7 +64,7 @@ window.addEventListener("load", function () {
       logoG.style.display = "none";
     }
   });
-  //  ============================= 메뉴기능
+  // ========================메뉴기능
   let nav = this.document.querySelector(".nav");
   let btMenu = this.document.querySelector(".bt-menu");
   let navClose = this.document.querySelector(".nav-close");
@@ -60,7 +78,7 @@ window.addEventListener("load", function () {
   nav.addEventListener("mouseleave", () => {
     nav.classList.remove("nav-active");
   });
-  // ============================= 비주얼 기능
+  // =======================비주얼 기능
 
   // 비디오 항목 체크 (video태그로 파악)
   // 모든비디오 태그를 변수에 저장
@@ -156,18 +174,16 @@ window.addEventListener("load", function () {
       videoIndex = index;
       swVisual.slideTo(videoIndex);
     });
+    // console.log(index);
+    // console.log(item);
   });
-
-
   // 비지니스 swiper
-  const swBusiness = new Swiper(".swBusiness", {
-    lpop:true,
-    speed:500,
-    autoplay:{
+  const sWBusiness = new Swiper(".swBusiness", {
+    loop: true,
+    speed: 500,
+    autoplay: {
       delay: 2500,
-      // 사용자가 슬라이드에 대한 상호 작용
-      // (터치 또는 클릭)을 할 때에도 자동 재생이 계속됩니다.
       disableOnInteraction: false,
-    }
-  })
+    },
+  });
 });
